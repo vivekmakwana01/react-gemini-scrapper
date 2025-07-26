@@ -90,7 +90,7 @@ fastify.post<{ Body: AskGeminiBody }>("/ask-gemini", { schema: askGeminiSchema }
     // });
 
     const geminiResponse = await ai.models.generateContent({
-      model: "gemini-2.0-flash-001",
+      model: "gemini-2.5-flash",
       contents: `
         This is a post titled "${postTitle}":
         ${postBody}
@@ -99,6 +99,20 @@ fastify.post<{ Body: AskGeminiBody }>("/ask-gemini", { schema: askGeminiSchema }
         ${commentTexts.join("\n")}
 
         List out apps with app names and descriptions. Also include links if given.
+
+        Template: 
+
+        ## ► App Category
+
+        * ⭐[App Name](App URL) - A simple and secure authentication app for Android
+        * [App Name](App URL) - Description
+        
+        No need to make app name bold or italics. Just use template above. 
+        Don't format like this: App Name - # Description
+        Don't format like this: App Name - [App URL](App URL) - Description
+        For apps without links just put '#' in the link column.
+        
+        Note: ⭐ means the app is free and open source.
       `,
     });
     reply.send(geminiResponse.text);
