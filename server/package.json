@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.13.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@google/genai": "^1.11.0",
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "fastify": "^5.4.0",
+    "from": "^0.1.7",
+    "import": "^0.0.6"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.0.0",
+    "@types/node": "latest",
+    "eslint": "^9.31.0",
+    "tsx": "^4.20.3"
+  }
+}
